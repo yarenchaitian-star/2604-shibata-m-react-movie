@@ -1,6 +1,6 @@
 import React from "react";
 import SignUpPage from "./feature/SighUp/SignUpPage";
-import ListPage from "./feature/ListPage";
+import ListPage from "./feature/ListPage/ListPage";
 import DetailPage from "./feature/DetailPage/DetailPage";
 import GenreListPage from "./feature/GenreList";
 import MyPage from "./feature/MyPage";

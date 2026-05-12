@@ -1,13 +1,13 @@
 import { useParams } from 'react-router-dom';
-import { useAnimeDetail } from '../../hooks/useAnimeDetail';
 import { DetailView } from './Component/DetailView';
+import { useFetchAnime } from '../../hooks/useFetchAnime';
 
 const DetailPage = () => {
     const { id } = useParams();
-    const { anime, error, loading } = useAnimeDetail(id);
-    if (error) return <div className="text-white p-10 text-center">取得失敗</div>;
-    if (loading || !anime) return <div className="h-screen bg-black animate-pulse" />;
-
+    const url=`https://api.jikan.moe/v4/anime/${id}`
+    const { anime, error, isLoading} = useFetchAnime(url)
+    if (isLoading) return <div>読み込み中...</div>;
+    if (error) return <div>読み込みエラー</div>;
 
     return (
         <DetailView anime={anime} />
