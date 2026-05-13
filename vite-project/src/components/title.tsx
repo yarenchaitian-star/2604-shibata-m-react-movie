@@ -1,8 +1,8 @@
-interface AnimeTitleProps {
+interface TitleProps {
     title: string;
     className?: string;
 }
-export const AnimeTitle = ({ title, className }: AnimeTitleProps) => {
+export const Title = ({ title, className }:TitleProps) => {
     return (
         <h1 className={`text-3xl md:text-5xl  my-4 ${className}`}>
             {title}

@@ -1,12 +1,12 @@
 import { Synopsis } from "../../../components/Synopsis";
-import { AnimeTitle } from "../../../components/title";
+import { Title } from "../../../components/title";
 import { DetailGenres } from "./DetailGenres";
 import { DetailPageLink } from "./DetailPegeLink";
 import { DetailPicture } from "./DetailPicture";
 import { ReleaseDate } from "./ReleaseDate";
 
 interface DetailViewProps {
-    anime: any; // 必要に応じて詳細な型を定義
+    anime: any; 
 }
 export const DetailView = ({ anime }: DetailViewProps) => {
     return (
@@ -14,7 +14,7 @@ export const DetailView = ({ anime }: DetailViewProps) => {
             <DetailPicture
                 imageUrl={anime.images?.jpg?.large_image_url}
                 title={anime.title} />
-            <AnimeTitle
+            <Title
                 title={anime.title_japanese || anime.title} />
             <ReleaseDate
                 date={(anime.aired?.from)} />

@@ -1,17 +1,19 @@
 import { useNavigate } from 'react-router-dom';
 import { useFetchAnime } from '../hooks/useFetchAnime';
+import type { AnimeInterface } from '../libs/AnimeInterface';
 
 interface GenreSectionProps {
     genreId: number;
     genreName: string;
     isLarge?: boolean;
-    className?:string;
+    className?: string;
 }
 
-const GenreSection = ({ genreId, genreName, isLarge = false ,className }: GenreSectionProps) => {
+const GenreSection = ({ genreId, genreName, isLarge = false, className }: GenreSectionProps) => {
     const navigate = useNavigate();
-    const url=`https://api.jikan.moe/v4/anime?genres=${genreId}`
-    const {anime, error, isLoading } = useFetchAnime(url);
+    const url = `https://api.jikan.moe/v4/anime?genres=${genreId}`
+    const { anime, error, isLoading } = useFetchAnime(url);
+
 
     if (isLoading) return <div>読み込み中...</div>;
     if (error) return <div>読み込みエラー</div>;
@@ -22,7 +24,7 @@ const GenreSection = ({ genreId, genreName, isLarge = false ,className }: GenreS
                 {genreName}
             </h2>
             <div className="flex overflow-x-auto gap-4 pb-6 ">
-                {anime.map((anime: any) => (
+                {anime.map((anime: AnimeInterface) => (
                     <div
                         key={anime.mal_id}
                         className={`flex-none ${isLarge

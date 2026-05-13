@@ -4,7 +4,6 @@ const MyPage = () => {
     const navigate = useNavigate();
 
     const handleLogout = () => {
-        console.log("ログアウトしました");
         navigate('/signup');
     };
 

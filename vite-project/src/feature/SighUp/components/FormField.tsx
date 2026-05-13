@@ -1,8 +1,9 @@
+import type { UseFormRegisterReturn, FieldError } from 'react-hook-form';
 interface FormFieldProps {
     label: string;
     type: string;
-    error?: any;
-    register: any;
+    error?: FieldError;
+    register: UseFormRegisterReturn;
 }
 
 export const FormField = ({ label, type, error, register }: FormFieldProps) => {
@@ -15,7 +16,7 @@ export const FormField = ({ label, type, error, register }: FormFieldProps) => {
         <div>
             <label className="block text-sm font-medium text-gray-700">{label}</label>
             <input type={type} {...register} className={inputClass} />
-            {error && <p className="mt-1 text-xs text-red-500">{String(error.message)}</p>}
+            {error && <p className="mt-1 text-xs text-red-500">{error.message}</p>}
         </div>
     );
 };

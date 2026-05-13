@@ -1,12 +1,13 @@
 import BannerSection from "./component/BannerSection";
 import GenreSection from "../../components/GenreSection";
+import { LISTPAGE_ARRAY } from "../../libs/const/ListPageArray";
 const ListPage = () => {
     return (
         <>
             <BannerSection />
-            <GenreSection genreName="アクション" genreId={1} isLarge={true} />
-            <GenreSection genreName="アドベンチャー" genreId={10} />
-            <GenreSection genreName="コメディー" genreId={22} className="pb-15"/>
+            {LISTPAGE_ARRAY.map((product)=>(
+                <GenreSection key={product.id}{...product}/>
+            ))}
         </>
     )
 }
