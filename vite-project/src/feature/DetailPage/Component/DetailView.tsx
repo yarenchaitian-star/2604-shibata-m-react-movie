@@ -10,7 +10,7 @@ interface DetailViewProps {
 }
 export const DetailView = ({ anime }: DetailViewProps) => {
     return (
-        <div className="flex flex-col justify-center items-center">
+        <div className="flex flex-col justify-center items-center pb-15">
             <DetailPicture
                 imageUrl={anime.images?.jpg?.large_image_url}
                 title={anime.title} />
@@ -19,7 +19,9 @@ export const DetailView = ({ anime }: DetailViewProps) => {
             <ReleaseDate
                 date={(anime.aired?.from)} />
             <Synopsis
-                text={anime.synopsis} />
+                text={anime.synopsis} 
+                title={true}
+                className="mb-5"/>
             <DetailGenres
                 anime={anime} />
             <DetailPageLink

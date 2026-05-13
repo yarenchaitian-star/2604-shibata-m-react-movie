@@ -1,26 +1,28 @@
 import { useNavigate } from 'react-router-dom';
-import { useGenreAnime } from '../hooks/useGenreAnime';
+import { useFetchAnime } from '../hooks/useFetchAnime';
 
 interface GenreSectionProps {
     genreId: number;
     genreName: string;
     isLarge?: boolean;
+    className?:string;
 }
 
-const GenreSection = ({ genreId, genreName, isLarge = false }: GenreSectionProps) => {
+const GenreSection = ({ genreId, genreName, isLarge = false ,className }: GenreSectionProps) => {
     const navigate = useNavigate();
-    const { items, error, isLoading } = useGenreAnime(genreId);
+    const url=`https://api.jikan.moe/v4/anime?genres=${genreId}`
+    const {anime, error, isLoading } = useFetchAnime(url);
 
-    if (error) return <div className=" py-10 px-8">取得失敗: {genreName}</div>;
-    if (isLoading || error || !items) return <div className="h-48 bg-gray-900 animate-pulse" />;
+    if (isLoading) return <div>読み込み中...</div>;
+    if (error) return <div>読み込みエラー</div>;
 
     return (
-        <section>
-            <h2 className="flex text-lg py-6 justify-center">
+        <section className={`${className}`}>
+            <h2 className="flex text-lg pt-0 pb-6 justify-center">
                 {genreName}
             </h2>
             <div className="flex overflow-x-auto gap-4 pb-6 ">
-                {items.map((anime: any) => (
+                {anime.map((anime: any) => (
                     <div
                         key={anime.mal_id}
                         className={`flex-none ${isLarge
