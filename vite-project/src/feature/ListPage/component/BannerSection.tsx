@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { AnimeTitle } from '../../../components/title';
+import { Title } from '../../../components/title';
 import { useFetchAnime } from '../../../hooks/useFetchAnime';
 import { Synopsis } from '../../../components/Synopsis';
 
@@ -25,7 +25,7 @@ const BannerSection = () => {
                 />)}
             <div className="absolute inset-0 bg-linear-to-t from-gray-950 via-transparent" />
             <div className="absolute bottom-16 left-10 max-w-3xl px-4">
-                <AnimeTitle
+                <Title
                     title={anime.title_japanese || anime.title}
                     className={"text-4xl md:text-5xl font-bold mb-4 text-gray-200 group-hover:text-black"} />
                 <Synopsis

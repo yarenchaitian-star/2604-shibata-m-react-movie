@@ -5,9 +5,7 @@ import DetailPage from "./feature/DetailPage/DetailPage";
 import GenreListPage from "./feature/GenreList";
 import MyPage from "./feature/MyPage";
 import Layout from "./layouts/Layout";
-
-import { Routes, Route, } from 'react-router-dom';
-
+import { Routes, Route, Navigate } from 'react-router-dom';
 const App: React.FC = () => {
 
 
@@ -15,9 +13,9 @@ const App: React.FC = () => {
     <>
       <Layout>
         <Routes>
+          <Route path="/" element={<Navigate to="/signup" />} />
           <Route path="/signup" element={<SignUpPage />} />
-          <Route path="/list" element={<ListPage />} /> {/* 遷移先 */}
-          <Route path="/" element={<SignUpPage />} />
+          <Route path="/list" element={<ListPage />} />
           <Route path="/detail/:id" element={<DetailPage />} />
           <Route path="/genres" element={<GenreListPage />} />
           <Route path="/mypage" element={<MyPage />} />

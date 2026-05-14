@@ -4,8 +4,6 @@ export const MyPageLogo = () => {
     const [isOpen, setIsOpen] = useState(false)
     const navigate = useNavigate();
     const handleLogout = () => {
-        // ここにログアウトの処理（認証情報の削除など）を書く
-        console.log("ログアウトしました");
         setIsOpen(false);
         navigate('/signup');
     };

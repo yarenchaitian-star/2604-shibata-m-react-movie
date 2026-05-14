@@ -1,27 +1,20 @@
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import { FormField } from './components/FormField';
-import { VALIDATION_RULES } from '../../libs/const/ValidationRules';
+import { useSignUpPage } from '../../hooks/useSignUpPage';
+
 const SignUpPage = () => {
-    const navigate = useNavigate();
     const {
         register,
         handleSubmit,
-        watch,
-        formState: { errors },
-    } = useForm({
-        mode: 'onBlur',
-    });
-    const onSubmit = () => {
-        navigate('/list')
-    };
-    const password = watch('password');
-
+        errors,
+        onSubmit,
+        password,
+        VALIDATION_RULES,
+    } = useSignUpPage();
+    
     return (
         <>
             <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-50">
                 <h2 className="text-2xl text-center text-gray-800 font-bold mb-8">サインアップ</h2>
-
                 <form onSubmit={handleSubmit(onSubmit)} className="w-full max-w-md space-y-4">
                     <div className="p-8 space-y-6 bg-white rounded-md shadow-md">
                         <FormField
