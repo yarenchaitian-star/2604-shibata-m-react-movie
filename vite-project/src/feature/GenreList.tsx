@@ -1,5 +1,5 @@
 import { useFetchAnime } from '../hooks/useFetchAnime';
-import type { AnimeInterface } from '../libs/AnimeInterface';
+import type { GenreListType } from '../types/AnimeInterface';
 
 const GenreListPage = () => {
     const { anime, error, isLoading } = useFetchAnime("https://api.jikan.moe/v4/genres/anime");
@@ -10,7 +10,7 @@ const GenreListPage = () => {
     return (
         <div className="flex flex-col items-center">
             <p>ジャンル一覧</p>
-            {anime?.map((genre:AnimeInterface) => (
+            {anime?.map((genre:GenreListType) => (
                 <div key={genre.mal_id}>
                     {genre.name}
                 </div>

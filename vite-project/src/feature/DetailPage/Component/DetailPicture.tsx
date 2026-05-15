@@ -1,7 +1,4 @@
-interface DetailPictureProps {
-    imageUrl: string;
-    title: string;
-}
+import type { DetailPictureProps } from "../../../types/AnimeInterface"
 export const DetailPicture = ({ imageUrl, title }: DetailPictureProps) => {
     return (<div className="pt-10">
         <img

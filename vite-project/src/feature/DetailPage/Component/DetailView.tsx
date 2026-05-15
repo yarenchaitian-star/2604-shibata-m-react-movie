@@ -4,10 +4,8 @@ import { DetailGenres } from "./DetailGenres";
 import { DetailPageLink } from "./DetailPegeLink";
 import { DetailPicture } from "./DetailPicture";
 import { ReleaseDate } from "./ReleaseDate";
+import type { DetailViewProps } from "../../../types/AnimeInterface";
 
-interface DetailViewProps {
-    anime: any; 
-}
 export const DetailView = ({ anime }: DetailViewProps) => {
     return (
         <div className="flex flex-col justify-center items-center pb-15">

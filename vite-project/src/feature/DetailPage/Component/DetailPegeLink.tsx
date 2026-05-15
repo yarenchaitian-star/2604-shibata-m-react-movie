@@ -1,6 +1,4 @@
-interface DetailPageLinkProps {
-    url: string | undefined;
-}
+import type { DetailPageLinkProps } from "../../../types/AnimeInterface";
 export const DetailPageLink = ({ url }: DetailPageLinkProps) => {
     if (!url) return null;
     return (

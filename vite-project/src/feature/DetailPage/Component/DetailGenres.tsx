@@ -1,6 +1,8 @@
-import type { AnimeInterface } from "../../../libs/AnimeInterface";
+import type { GenreItem } from "../../../types/AnimeInterface";
 interface DetailGenresProps {
-    anime: AnimeInterface
+    anime: {
+        genres: GenreItem[]; 
+    };
 }
 export const DetailGenres = ({ anime }: DetailGenresProps) => {
     return (

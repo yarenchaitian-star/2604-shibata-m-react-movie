@@ -1,13 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { VALIDATION_RULES } from "../libs/const/ValidationRules";
-
-interface SignUpFormInputs {
-    username: string;
-    password: string;
-    rePassword: string;
-    email: string;
-}
+import type { SignUpFormInputs } from "../types/AnimeInterface";
 export const useSignUpPage = () => {
     const navigate = useNavigate();
     const {
@@ -29,6 +22,5 @@ export const useSignUpPage = () => {
         errors,
         onSubmit,
         password,
-        VALIDATION_RULES,
     };
 };

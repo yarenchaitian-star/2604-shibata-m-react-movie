@@ -1,13 +1,7 @@
 import { useNavigate } from 'react-router-dom';
 import { useFetchAnime } from '../hooks/useFetchAnime';
-import type { AnimeInterface } from '../libs/AnimeInterface';
-
-interface GenreSectionProps {
-    genreId: number;
-    genreName: string;
-    isLarge?: boolean;
-    className?: string;
-}
+import type { GenreSectionProps } from '../types/AnimeInterface';
+import type { GenreSectionTypes } from '../types/AnimeInterface';
 
 const GenreSection = ({ genreId, genreName, isLarge = false, className }: GenreSectionProps) => {
     const navigate = useNavigate();
@@ -24,7 +18,7 @@ const GenreSection = ({ genreId, genreName, isLarge = false, className }: GenreS
                 {genreName}
             </h2>
             <div className="flex overflow-x-auto gap-4 pb-6 ">
-                {anime.map((anime: AnimeInterface) => (
+                {anime.map((anime:GenreSectionTypes) => (
                     <div
                         key={anime.mal_id}
                         className={`flex-none ${isLarge
