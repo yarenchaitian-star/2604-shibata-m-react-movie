@@ -1,10 +1,7 @@
 import { useLocation } from 'react-router-dom';
 import Header from './Header/Header';
 import Footer from './Footer/Footer';
-
-interface LayoutProps {
-    children: React.ReactNode;
-}
+import type { LayoutProps } from '../types/AnimeInterface';
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
     const location = useLocation();

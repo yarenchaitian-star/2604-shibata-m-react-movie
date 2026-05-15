@@ -1,6 +1,4 @@
-interface ReleasedateProps {
-    date: string;
-}
+import type { ReleasedateProps } from "../../../types/AnimeInterface";
 export const ReleaseDate = ({ date }: ReleasedateProps) => {
     const formatDate = (dateString: string) => {
         if (!dateString) return "不明";

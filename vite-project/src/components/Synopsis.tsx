@@ -1,8 +1,4 @@
-interface SynopsisProps {
-    text: string | undefined;
-    className?:string;
-    title?:boolean;
-}
+import type { SynopsisProps } from "../types/AnimeInterface";
 export const Synopsis = ({ text ,className,title=false}: SynopsisProps) => {
     return (
         <div className="flex flex-col items-center">

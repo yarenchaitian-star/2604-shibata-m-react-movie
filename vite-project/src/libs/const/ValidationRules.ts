@@ -19,6 +19,10 @@ export const VALIDATION_RULES = {
             message: '半角英数字のみ使用可能です'
         }
     },
+    rePassword: (passwordValue: string) => ({
+        required: '確認用パスワードを入力してください',
+        validate: (value: string) => value === passwordValue || 'パスワードが一致しません'
+    }),
     mail: {
         required: 'メールアドレスは必須です',
         pattern: { value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, message: '有効な形式で入力してください' }

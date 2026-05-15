@@ -1,5 +1,6 @@
 import { FormField } from './components/FormField';
 import { useSignUpPage } from '../../hooks/useSignUpPage';
+import { VALIDATION_RULES } from '../../libs/const/ValidationRules';
 
 const SignUpPage = () => {
     const {
@@ -8,9 +9,8 @@ const SignUpPage = () => {
         errors,
         onSubmit,
         password,
-        VALIDATION_RULES,
     } = useSignUpPage();
-    
+
     return (
         <>
             <div className="flex flex-col items-center justify-center min-h-screen px-4 bg-gray-50">
@@ -33,10 +33,7 @@ const SignUpPage = () => {
                             label="repassword"
                             type="password"
                             error={errors.rePassword}
-                            register={register('rePassword', {
-                                required: '確認用パスワードを入力してください',
-                                validate: (value) => value === password || 'パスワードが一致しません'
-                            })}
+                            register={register('rePassword', VALIDATION_RULES.rePassword(password))}
                         />
                         <FormField
                             label="mail"
